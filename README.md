@@ -53,3 +53,6 @@ Finally the last question was "Which individuals or organization have won more t
 
 ## Visualizations
 You can find my visualizations for the the analysis in [Visualizations](https://github.com/stgordillo/nobel_python/blob/main/VISUALIZATIONS.md).
+
+RESULT
+{'p_val': array([0.00510661]), 'result': 'reject'}
