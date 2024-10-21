@@ -1,6 +1,23 @@
-# FIFA Hypothesis Testing Analysis - Python Practice
+# Nobel Prize Analysis - Python Project
 ## Introduction
-This analysis is just practice. I'm starting to learn how to incorporate more of my education with statistics into data analysis so I chose a guided practice to dip my feet into. Here I was provided two already created datasets regarding FIFA: one with data on men's soccer and the other on women's soccer.
+This analysis is just practice. I've improved a lot since my last python project and also learned how to better mask and so I wanted to work on that as well as getting better at aggragating data among other tricks I've picked up. 
+
+The description of this guided project is here:
+You're working as a sports journalist at a major online sports media company, specializing in soccer analysis and reporting. You've been watching both men's and women's international soccer matches for a number of years, and your gut instinct tells you that more goals are scored in women's international football matches than men's. This would make an interesting investigative article that your subscribers are bound to love, but you'll need to perform a valid statistical hypothesis test to be sure!
+
+While scoping this project, you acknowledge that the sport has changed a lot over the years, and performances likely vary a lot depending on the tournament, so you decide to limit the data used in the analysis to only official FIFA World Cup matches (not including qualifiers) since 2002-01-01.
+
+You create two datasets containing the results of every official men's and women's international football match since the 19th century, which you scraped from a reliable online source. This data is stored in two CSV files: women_results.csv and men_results.csv.
+
+The question you are trying to determine the answer to is:
+
+    Are more goals scored in women's international soccer matches than men's?
+
+You assume a 10% significance level, and use the following null and alternative hypotheses:
+
+H_0: The mean number of goals scored in women's international soccer matches is the same as men's.
+
+H_A: The mean number of goals scored in women's international soccer matches is greater than men's.
 
 ## Data Sources
 The dataset used in this project was retrieved from a Kaggle dataset found here: [Nobel Prize Dataset](https://www.kaggle.com/datasets/imdevskp/nobel-prize).
