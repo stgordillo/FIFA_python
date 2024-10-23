@@ -2,30 +2,16 @@
 ## Introduction
 This analysis is just practice. I've improved a lot since my last python project and also learned how to better mask and so I wanted to work on that as well as getting better at aggragating data among other tricks I've picked up. 
 
-The description of this guided project is here:
-You're working as a sports journalist at a major online sports media company, specializing in soccer analysis and reporting. You've been watching both men's and women's international soccer matches for a number of years, and your gut instinct tells you that more goals are scored in women's international football matches than men's. This would make an interesting investigative article that your subscribers are bound to love, but you'll need to perform a valid statistical hypothesis test to be sure!
+The description of this guided project is here, taken from the project environment:
 
-While scoping this project, you acknowledge that the sport has changed a lot over the years, and performances likely vary a lot depending on the tournament, so you decide to limit the data used in the analysis to only official FIFA World Cup matches (not including qualifiers) since 2002-01-01.
+![Project Description](https://github.com/user-attachments/assets/cdd03fb3-7a34-49fe-a08e-24e1b3115652)
 
-You create two datasets containing the results of every official men's and women's international football match since the 19th century, which you scraped from a reliable online source. This data is stored in two CSV files: women_results.csv and men_results.csv.
-
-The question you are trying to determine the answer to is:
-
-    Are more goals scored in women's international soccer matches than men's?
-
-You assume a 10% significance level, and use the following null and alternative hypotheses:
-
-H_0: The mean number of goals scored in women's international soccer matches is the same as men's.
-
-H_A: The mean number of goals scored in women's international soccer matches is greater than men's.
 
 ## Data Sources
-The dataset used in this project was retrieved from a Kaggle dataset found here: [Nobel Prize Dataset](https://www.kaggle.com/datasets/imdevskp/nobel-prize).
-
-This data has both raw and cleaned versions of a csv, since this was practice for filtering, etc and not for cleaing, I opted to start from the cleaned dataset this time. It contains demographic data for winners, years awarded, affliations, etc which we can use for our insights.
+The dataset used in this project was given to me by DataCamp in the Project section titled "Hypothesis Testing with Men's and Women's Soccer Matches". Unfortunately, the dataset only really exists inside of the project environment so I will be unable to share that here.
 
 ## Analysis Report
-This section is a quick summary of my findings. You can find the full code and comments in the [Analysis](https://github.com/stgordillo/nobel_python/blob/main/ANALYSIS.py).
+This section is a quick summary of my findings. You can find the full code and comments in the [Analysis](https://github.com/stgordillo/FIFA_python/blob/main/ANALYSIS.py).
 
 ### Initial
 For this practice analysis, I wanted to practice more with looking for the answers to "business questions" or rather have some sort of goal that I initially give myself to try and solve. Here, I had five questions in total to find in the dataset:
@@ -52,7 +38,7 @@ Question 4, "Who was the first woman to receive a Nobel Prize, and in what categ
 Finally the last question was "Which individuals or organization have won more than one Nobel Prize throughout the years?" and I obtained that information by using the full_name column to count the values of unique names. Then I used filtering and indexing to find anyone who's named appeared more than once, changing the index into a list to find 6 returners to getting a Nobel Prize. The Red Cross and the Office of the UN High Commissioner for Refugees being the returning organizations and the returning individuals being Linus Carl Pauling, John Bardeen, Frederick Sanger, and Marie Curie.
 
 ## Visualizations
-You can find my visualizations for the the analysis in [Visualizations](https://github.com/stgordillo/nobel_python/blob/main/VISUALIZATIONS.md).
+You can find my visualizations for the the analysis in [Visualizations](https://github.com/stgordillo/FIFA_python/blob/main/VISUALIZATIONS.md).
 
 RESULT
 {'p_val': array([0.00510661]), 'result': 'reject'}
