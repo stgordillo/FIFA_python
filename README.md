@@ -1,6 +1,6 @@
-# Nobel Prize Analysis - Python Project
+# FIFA Men's and Women's Soccer - Python Project
 ## Introduction
-This analysis is just practice. I've improved a lot since my last python project and also learned how to better mask and so I wanted to work on that as well as getting better at aggragating data among other tricks I've picked up. 
+This analysis is more practice as I finish my final semester at university. This project had me using a lot of subsetting and some statistics. 
 
 The description of this guided project is here, taken from the project environment:
 
@@ -14,31 +14,22 @@ The dataset used in this project was given to me by DataCamp in the Project sect
 This section is a quick summary of my findings. You can find the full code and comments in the [Analysis](https://github.com/stgordillo/FIFA_python/blob/main/ANALYSIS.py).
 
 ### Initial
-For this practice analysis, I wanted to practice more with looking for the answers to "business questions" or rather have some sort of goal that I initially give myself to try and solve. Here, I had five questions in total to find in the dataset:
-What is the most commonly awarded gender and birth country?
-Which decade had the highest ratio of US-born Nobel Prize winners to total winners in all categories?
-Which decade and Nobel Prize category combination had the highest proportion of female laureates?
-Who was the first woman to receive a Nobel Prize, and in what category?
-Which individuals or organization have won more than one Nobel Prize throughout the years?
+This practice analysis was guided from DataCamp and so already had a question it wanted me to answer which was "Are more goals scored in women's international soccer matches than men's?" I would need to find the appropriate hypothesis test and find the p-value. They told me to use a 10% confidence level and also the null hypothesis being "The mean number of goals scored in women's international soccer matches is the same as men's" and the alternative hypothesis being "The mean number of goals scored in women's international soccer matches is greater than men's".
 
-I also have recently taken a small course learning more about seaborn so I loaded up the following packages for this analysis: pandas, matplotlib, seaborn and numpy. 
+I used the packages pandas, matplotlib and pingouin for this analysis. 
 
 ### Exploration
-Exploration wasn't too involved in coding, but I did sift through the dataset for awhile so I could determine what my five questions would be that I couldn't get the answers to just from looking at the data in a table. In this case, I just used .head() to look at column names and get an idea of what I wanted to look into and came to the questions above. 
+After loading up the two datasets, one for men's soccer and one for women's, I used .head() & .tail(), .shape(), .describe(), and checked .value_counts() for a few columns I thought would be pertinent to the analysis, namely date, home_score & away_score.
 
-### Findings
-Looking at my first question, "What is the most commonly awarded gender and birth country?" I just used .mode() on the columns of 'sex' and 'birth_country' to find the answers as Male and United States of America respectively. 
+### Method
+I started by filtering my data for matches from 2002 onwards as well as matches in the FIFA World Cup. Additionally, there was no total goals scored column, just one for home and one for away games, so I needed to combine those scores together in each dataset into goals_scored. Once that was done, I created a histogram so I could see the distribution and help determine what hypothesis test I needed to use.
 
-The second question, "Which decade had the highest ratio of US-born Nobel Prize winners to total winners in all categories?" I created a new column that had a boolean value if the person listed there was born in America or not, then I created a second column that "bins" the years into decades and finally I grouped the data by decades and found the mean of US winners by decade and found the max to find the the decade with the most being 2000s. I also used a relplot with sns to visualize this information. 
+I ended up using the Wilcoxon-Mann-Whitney test since the scores weren't distributed normally. To prepare for it, I concatenated the two datasets together and created a wide dataset. Here I used pingouin in order to create the right-tailed Wilcoxon-Mann-Whitney test, which took me a few tries to get settled right, as I previously had little practice using this kind of analysis. 
 
-Third question, "Which decade and Nobel Prize category combination had the highest proportion of female laureates?" was found using something similar as my last question, creating a boolean column for female winners, using groupby and mean to find the average per decade and category, and finding the top decade with max. Then turned into into a dictionary and finally plotted the data with another relplot in sns. The finding was 2020 in Literature with a proportion of 68 winners. 
-
-Question 4, "Who was the first woman to receive a Nobel Prize, and in what category?", I filtered the dataframe for only female winners, filtered down to the minimum (earliest) year and extracted her name and category being the famous Madame Curie in Physics. 
-
-Finally the last question was "Which individuals or organization have won more than one Nobel Prize throughout the years?" and I obtained that information by using the full_name column to count the values of unique names. Then I used filtering and indexing to find anyone who's named appeared more than once, changing the index into a list to find 6 returners to getting a Nobel Prize. The Red Cross and the Office of the UN High Commissioner for Refugees being the returning organizations and the returning individuals being Linus Carl Pauling, John Bardeen, Frederick Sanger, and Marie Curie.
+After this I found my p-value (0.00510661) which is below the significance level and used a if-else function to determine the p-value and result, which rejected my null hypothesis. 
 
 ## Visualizations
 You can find my visualizations for the the analysis in [Visualizations](https://github.com/stgordillo/FIFA_python/blob/main/VISUALIZATIONS.md).
 
-RESULT
+## RESULT
 {'p_val': array([0.00510661]), 'result': 'reject'}
